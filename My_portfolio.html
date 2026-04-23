@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kavya R — Internship Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #2e7d52;
+      --green-light: #e8f5ee;
+      --green-mid:   #4caf78;
+      --cream:       #faf8f4;
+      --white:       #ffffff;
+      --text:        #2c2c2c;
+      --muted:       #6b7280;
+      --border:      #e5e7eb;
+      --gold:        #f59e0b;
+      --gold-light:  #fef3c7;
+      --shadow:      0 4px 20px rgba(0,0,0,0.08);
+      --radius:      12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    
+
+    /* ── NAVBAR ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .nav-name {
+      font-size: 1.1rem; font-weight: 800;
+      color: var(--green);
+    }
+    .nav-name span { color: var(--text); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      font-size: 13px; font-weight: 600;
+      color: var(--muted); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--white);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .avatar {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: var(--green-light);
+      border: 3px solid var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; font-weight: 800; color: var(--green);
+      margin: 0 auto 1.25rem;
+      font-family: 'Lora', serif;
+    }
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: 2rem; font-weight: 600;
+      color: var(--text); margin-bottom: 0.3rem;
+    }
+    .hero-role {
+      font-size: 1rem; color: var(--green);
+      font-weight: 700; margin-bottom: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+    .hero-bio {
+      max-width: 540px; margin: 0 auto 1.75rem;
+      color: var(--muted); font-size: 14px; line-height: 1.8;
+    }
+    .hero-badges {
+      display: flex; flex-wrap: wrap;
+      gap: 0.5rem; justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 12px; font-weight: 700;
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+      border: 1px solid #b7dfca;
+    }
+    .hero-contact {
+      display: flex; flex-wrap: wrap;
+      gap: 0.75rem; justify-content: center;
+    }
+    .contact-pill {
+      display: flex; align-items: center; gap: 0.4rem;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.4rem 1rem;
+      font-size: 13px; color: var(--muted);
+      font-weight: 600;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-pill:hover { border-color: var(--green); color: var(--green); }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: 1.4rem; font-weight: 600;
+      color: var(--text); margin-bottom: 0.3rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1; height: 2px;
+      background: linear-gradient(90deg, var(--green-light), transparent);
+      border-radius: 2px;
+    }
+    .section-sub {
+      font-size: 13px; color: var(--muted);
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── ABOUT CARD ── */
+    .about-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+    }
+    .about-card p {
+      color: var(--muted); font-size: 14px;
+      line-height: 1.85; margin-bottom: 1rem;
+    }
+    .about-card p:last-child { margin-bottom: 0; }
+    .about-card strong { color: var(--text); }
+    .about-highlight {
+      background: var(--green-light);
+      border-left: 3px solid var(--green);
+      border-radius: 0 8px 8px 0;
+      padding: 0.85rem 1.1rem;
+      font-size: 13.5px;
+      color: var(--green);
+      font-weight: 600;
+      font-style: italic;
+      margin-top: 1rem;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .skill-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      box-shadow: var(--shadow);
+    }
+    .skill-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-color: var(--green-mid);
+    }
+    .skill-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .skill-name {
+      font-size: 12px; font-weight: 800;
+      color: var(--text); letter-spacing: 0.05em;
+      text-transform: uppercase; margin-bottom: 0.5rem;
+    }
+    .skill-tags-wrap { display: flex; flex-wrap: wrap; gap: 0.3rem; justify-content: center; }
+    .skill-tag {
+      font-size: 11px; font-weight: 600;
+      background: var(--green-light);
+      color: var(--green);
+      padding: 0.15rem 0.55rem;
+      border-radius: 10px;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .proj-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .proj-card::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--green);
+      border-radius: 4px 0 0 4px;
+    }
+    .proj-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+    }
+    .proj-header {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 1rem;
+      margin-bottom: 0.5rem; flex-wrap: wrap;
+    }
+    .proj-title {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--text);
+    }
+    .proj-type {
+      font-size: 11px; font-weight: 700;
+      background: var(--gold-light);
+      color: #92400e;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .proj-tech {
+      font-size: 12px; color: var(--green);
+      font-weight: 700; margin-bottom: 0.6rem;
+    }
+    .proj-desc {
+      font-size: 13.5px; color: var(--muted);
+      line-height: 1.8; margin-bottom: 0.9rem;
+    }
+    .proj-points { list-style: none; padding: 0; }
+    .proj-points li {
+      font-size: 13px; color: var(--muted);
+      padding: 0.2rem 0 0.2rem 1.2rem;
+      position: relative;
+    }
+    .proj-points li::before {
+      content: '✓';
+      position: absolute; left: 0;
+      color: var(--green); font-weight: 700; font-size: 12px;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-list { display: flex; flex-direction: column; gap: 1rem; }
+    .edu-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+      box-shadow: var(--shadow);
+      transition: border-color 0.2s;
+    }
+    .edu-card:hover { border-color: var(--green-mid); }
+    .edu-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--green-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .edu-degree {
+      font-size: 14px; font-weight: 800; color: var(--text);
+      margin-bottom: 0.1rem;
+    }
+    .edu-school { font-size: 13px; color: var(--muted); }
+    .edu-year {
+      margin-left: auto; font-size: 12px; font-weight: 700;
+      color: var(--green); white-space: nowrap;
+    }
+
+    /* ── WHY HIRE ME ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .why-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .why-card:hover { transform: translateY(-3px); border-color: var(--green-mid); }
+    .why-icon { font-size: 2rem; margin-bottom: 0.6rem; }
+    .why-title {
+      font-size: 13px; font-weight: 800;
+      color: var(--text); margin-bottom: 0.3rem;
+    }
+    .why-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--green);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .contact-section h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.6rem; font-weight: 600;
+      color: var(--white); margin-bottom: 0.5rem;
+    }
+    .contact-section p {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px; margin-bottom: 2rem;
+    }
+    .contact-cards {
+      display: flex; flex-wrap: wrap;
+      gap: 1rem; justify-content: center;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      color: var(--white);
+      font-size: 13.5px; font-weight: 600;
+      transition: background 0.2s;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .contact-card:hover { background: rgba(255,255,255,0.22); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 1.25rem;
+      font-size: 12.5px; color: var(--muted);
+    }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* ── FADE IN ANIMATION ── */
+    .fade { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade.show { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero h1 { font-size: 1.6rem; }
+      .edu-card { flex-wrap: wrap; }
+      .edu-year { margin-left: 0; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-name">Kavya<span>.R</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+ 
+
+<!-- HERO -->
+<div class="hero fade">
+  <div class="avatar">K</div>
+  <h1>Kavya R</h1>
+  <div class="hero-role">Full Stack Developer</div>
+  <p class="hero-bio">
+    A passionate Computer Science postgraduate with hands-on experience in building
+    responsive web applications using HTML, CSS, JavaScript, Python, and MySQL.
+    Ready to learn, contribute, and grow.
+  </p>
+  
+  <div class="hero-contact">
+    <a href="tel:+919786389457" class="contact-pill">📞 +91 97863 89457</a>
+    <a href="mailto:kavyarajendran1412@gmail.com" class="contact-pill">✉️ kavyarajendran1412@gmail.com</a>
+    <a href="https://www.linkedin.com/in/kavya-rajendran-788831319" target="_blank" class="contact-pill">🔗 LinkedIn Profile</a>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+  <div class="section-title fade">About Me</div>
+  <p class="section-sub fade">Who I am and what I bring</p>
+  <div class="about-card fade">
+    <p>
+      Hi! I'm <strong>Kavya R</strong>, a Full Stack Developer with a <strong>Master's degree in Computer Science</strong>
+      from Bharathiar University, Coimbatore. I enjoy building web applications that are
+      clean, functional, and user-friendly.
+    </p>
+    <p>
+      I have completed a <strong>3-month Full Stack Developer course</strong> where I gained hands-on
+      experience in frontend design, backend development, and database integration.
+      I have built real projects including a Phishing URL Detection System and an
+      Encryption & Decryption desktop application.
+    </p>
+    <p>
+      I am a quick learner who adapts easily, works well in teams, and is always eager
+      to take on new challenges. I am actively looking for an <strong>internship opportunity</strong>
+      to apply my skills in a real work environment and grow as a developer.
+    </p>
+    <div class="about-highlight">
+      "I am not just looking for an internship — I am looking for a place to learn, contribute, and grow."
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- SKILLS -->
+<div class="section" id="skills">
+  <div class="section-title fade">Technical Skills</div>
+  <p class="section-sub fade">Technologies I have worked with</p>
+  <div class="skills-grid">
+    <div class="skill-card fade">
+      <div class="skill-icon">🖥️</div>
+      <div class="skill-name">Frontend</div>
+      <div class="skill-tags-wrap">
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">AJAX</span>
+      </div>
+    </div>
+    <div class="skill-card fade">
+      <div class="skill-icon">⚙️</div>
+      <div class="skill-name">Backend</div>
+      <div class="skill-tags-wrap">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">PHP</span>
+      </div>
+    </div>
+    <div class="skill-card fade">
+      <div class="skill-icon">🗄️</div>
+      <div class="skill-name">Database</div>
+      <div class="skill-tags-wrap">
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">MongoDB</span>
+      </div>
+    </div>
+    <div class="skill-card fade">
+      <div class="skill-icon">🛠️</div>
+      <div class="skill-name">Tools</div>
+      <div class="skill-tags-wrap">
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">VS Code</span>
+      </div>
+    </div>
+    <div class="skill-card fade">
+      <div class="skill-icon">🤝</div>
+      <div class="skill-name">Soft Skills</div>
+      <div class="skill-tags-wrap">
+        <span class="skill-tag">Teamwork</span>
+        <span class="skill-tag">Communication</span>
+        <span class="skill-tag">Adaptability</span>
+      </div>
+    </div>
+    <div class="skill-card fade">
+      <div class="skill-icon">📚</div>
+      <div class="skill-name">Learning</div>
+      <div class="skill-tags-wrap">
+        <span class="skill-tag">React.js</span>
+        <span class="skill-tag">Node.js</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- PROJECTS -->
+<div class="section" id="projects">
+  <div class="section-title fade">Projects</div>
+  <p class="section-sub fade">What I have built so far</p>
+  <div class="projects-list">
+
+    <div class="proj-card fade">
+      <div class="proj-header">
+        <div class="proj-title">Phishing URL Detection System</div>
+        <span class="proj-type">Academic Project</span>
+      </div>
+      <div class="proj-tech">HTML | CSS | JavaScript | Python | PHP | MySQL</div>
+      <p class="proj-desc">
+        A web application that detects and classifies phishing URLs in real time,
+        helping users identify unsafe links before clicking them.
+      </p>
+      <ul class="proj-points">
+        <li>Built the full web interface using HTML, CSS, and JavaScript</li>
+        <li>Connected Python and PHP backend for URL classification logic</li>
+        <li>Used MySQL database to store and retrieve URL records</li>
+        <li>Made the design responsive so it works on all screen sizes</li>
+      </ul>
+    </div>
+
+    <div class="proj-card fade">
+      <div class="proj-header">
+        <div class="proj-title">Encryption &amp; Decryption System</div>
+        <span class="proj-type">Mini Project</span>
+      </div>
+      <div class="proj-tech">Python | Tkinter | GUI Design</div>
+      <p class="proj-desc">
+        A desktop application built with Python for encrypting and decrypting text,
+        featuring a simple and clean graphical interface.
+      </p>
+      <ul class="proj-points">
+        <li>Developed the full application using Python and Tkinter</li>
+        <li>Designed a simple GUI that is easy to use for all users</li>
+        <li>Implemented encryption and decryption logic securely</li>
+      </ul>
+    </div>
+
+    <div class="proj-card fade">
+      <div class="proj-header">
+        <div class="proj-title">Mini E-Commerce Web Page</div>
+        <span class="proj-type">Course Project</span>
+      </div>
+      <div class="proj-tech">HTML | CSS | JavaScript</div>
+      <p class="proj-desc">
+        A responsive e-commerce product page with product listings,
+        interactive elements, and a clean modern layout.
+      </p>
+      <ul class="proj-points">
+        <li>Designed and coded the full page from scratch</li>
+        <li>Made it fully responsive for mobile and desktop</li>
+        <li>Added interactive UI components using JavaScript</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- EDUCATION -->
+<div class="section" id="education">
+  <div class="section-title fade">Education</div>
+  <p class="section-sub fade">My academic background</p>
+  <div class="edu-list">
+    <div class="edu-card fade">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-degree">M.Sc. Computer Science</div>
+        <div class="edu-school">Bharathiar University, Coimbatore</div>
+      </div>
+      <div class="edu-year">2024 – 2026</div>
+    </div>
+    <div class="edu-card fade">
+      <div class="edu-icon">🏫</div>
+      <div>
+        <div class="edu-degree">B.Sc. Computer Science</div>
+        <div class="edu-school">Shree Venkateshwara Arts and Science College, Erode</div>
+      </div>
+      <div class="edu-year">2021 – 2024</div>
+    </div>
+    <div class="edu-card fade">
+      <div class="edu-icon">💻</div>
+      <div>
+        <div class="edu-degree">Full Stack Developer Course</div>
+        <div class="edu-school">3-Month Intensive Training — Frontend, Backend &amp; Database</div>
+      </div>
+      <div class="edu-year">2024</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- WHY HIRE ME -->
+<div class="section">
+  <div class="section-title fade">Why Hire Me?</div>
+  <p class="section-sub fade">What makes me a good intern</p>
+  <div class="why-grid">
+    <div class="why-card fade">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">Quick Learner</div>
+      <div class="why-desc">I pick up new tools and technologies fast and apply them right away</div>
+    </div>
+    <div class="why-card fade">
+      <div class="why-icon">🤝</div>
+      <div class="why-title">Team Player</div>
+      <div class="why-desc">I work well with others, communicate clearly, and collaborate effectively</div>
+    </div>
+    <div class="why-card fade">
+      <div class="why-icon">🔧</div>
+      <div class="why-title">Hands-On Skills</div>
+      <div class="why-desc">I have real projects to show — not just theory from books</div>
+    </div>
+    <div class="why-card fade">
+      <div class="why-icon">🎯</div>
+      <div class="why-title">Goal Oriented</div>
+      <div class="why-desc">I focus on delivering results and meeting deadlines consistently</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <h2>Let's Connect!</h2>
+  <p>Open to new opportunities — feel free to reach out anytime.</p>
+  <div class="contact-cards">
+    <a href="tel:+919786389457" class="contact-card">📞 +91 97863 89457</a>
+    <a href="mailto:kavyarajendran1412@gmail.com" class="contact-card">✉️ kavyarajendran1412@gmail.com</a>
+    <a href="https://www.linkedin.com/in/kavya-rajendran-788831319" target="_blank" class="contact-card">🔗 LinkedIn Profile</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Kavya R &nbsp;·&nbsp; Full Stack Developer &nbsp;·&nbsp; Tamil Nadu, India
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.fade');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('show'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
